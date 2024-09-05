@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'product/css/product.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="d-flex justify-content-around p-5">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+            <h1 class="cards-h1">Функціонал продукту</h1>
+            <div class="custom-grid-item">КАДРОВИЙ ОБЛІК</div>
+            <div class="custom-grid-item">ЗАРОБІТНА ПЛАТА</div>
+            <div class="custom-grid-item">КЕРУВАННЯ ПРОДАЖАМИ</div>
+            <div class="custom-grid-item">УПРАВЛІННЯ ЗАВДАННЯМИ</div>
+        </div>
+        <div>
+            <h2 class="cards-h2">Кадровий облік</h2>
+            <ul>
+                <li class="cards-li">Довідники для кадрового обліку</li>
+                <li class="cards-li">Картка співробітника</li>
+                <li class="cards-li">Штатний розклад</li>
+                <li class="cards-li">Кадрові накази</li>
+                <img src="{% static 'product/img/cards-item1.svg' %}" alt="">
+            </ul>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-5 margin-top align-items-center">
+        <div class="ad-window d-flex gap-3 justify-content-around">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h1 class="ad-window-h1">Скільки коштує?</h1>
+                <h2 class="ad-window-h2">€5,59 за 1 користувача</h2>
+                <div>
+                    <p class="ad-window-p">на місяць при оплаті за рік. При щомісячній оплаті вартість становить €6.99</p>
+                </div>
+            </div>
+            <div class="d-flex flex-column w-50">
+                <p class="ad-window-p">Ви отримаєте зручну облікову систему з широким функціоналом ERP системи від офіційного представника - компанії ERP-Systems</p>
+                <button type="button" class="btn header-btn btn-primary">Розпочніть зараз</button>
+            </div>
+        </div>
+    </div>
+    <div class="main-form">
+        <div class="main-form-text w-50">
+            <h1>Почніть працювати разом з нами!</h1>
+            <p>Заповніть форму, і наш партнер з впровадження з'вяжеться з вами для уточнення деталей подальшої співпраці</p>
+        </div>
+        <div>
+            <form class="d-flex flex-column gap-5 justify-content-center">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ПІБ *</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Телефон *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Email *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword3">Компанія *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword3">
+                </div>
+                <button type="submit" class="btn btn-primary">Надіслати</button>
+                </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

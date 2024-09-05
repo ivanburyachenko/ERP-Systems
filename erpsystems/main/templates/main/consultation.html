@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'consultation/css/consultation.css' %}">
+{% endblock %}
+{% block main %}
+<main class="d-flex flex-column gap-5">
+    <div class="d-flex main-banner justify-content-around align-items-center">
+        <img width="587px" src="{% static 'consultation/img/main-img.svg' %}" alt="">
+        <div class="d-flex flex-column w-50 gap-5">
+            <h1>Консультаційні послуги</h1>
+            <p>для клієнтів, які самостійно забезпечують підтримку своєї бази, але іноді потребують додаткових консультацій по точкових питаннях</p>
+            <button type="button" class="btn header-btn btn-primary">Отримати консультацію</button>
+        </div>
+    </div>
+    <div class="d-flex consultation-offer justify-content-around">
+        <div class="w-50">
+            <h1>Можливості для клієнта</h1>
+            <p>Консультаційний пакет ERP-Systems надає клієнтам можливість отримати додаткові консультації по точкових питаннях, які не може самостійно вирішити команда клієнта. </p>
+            <p>Крім того, пакет містить допомогу з моделюванням і пошуком причини проблеми та її вирішення.</p>
+        </div>
+        <img src="{% static 'consultation/img/consultation-img1.svg' %}" alt="">
+    </div>
+    <div class="d-flex consultation-offer justify-content-around">
+        <div class="w-50">
+            <h1>Переваги консультацій з ERP-Systems</h1>
+            <p>Перевага взаємодії в рамках консультаційного пакету у тому, що команді клієнта може отримати допомогу від експертів та консультантів ERP-Systems, які мають багаторічний досвід у різних галузях.</p>
+            <p>Це дозволяє вам отримати відповіді на свої запитання та розв’язати проблеми швидко та ефективно.</p>
+        </div>
+        <img src="{% static 'consultation/img/consultation-img2.svg' %}" alt="">
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex banner-form main-form">
+            <div>
+                <form class="d-flex flex-column gap-4 justify-content-center">
+                    <h1>Форма запиту на консультацію</h1>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ім'я та прізвище *</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Назва компанії *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword2">Телефон *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword3">Email *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Надіслати</button>
+                </form>
+            </div>
+            <img src="{% static 'implementation/img/banner-form.svg' %}" alt="">
+        </div>
+    </div>
+</main>
+{% endblock %}

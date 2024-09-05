@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'implementation/css/implementation.css' %}">
+{% endblock %}
+{% block main %}
+<main class="d-flex flex-column gap-5">
+    <div class="d-flex justify-content-around align-items-center mb-5">
+        <div>
+            <h1 class="main-header-h1">Не просто впроваджуємо ERP –</h1>
+            <h1 class="main-header-h2">змінюємо бізнес на краще</h1>
+            <button type="button" class="btn header-btn btn-primary">Дізнатися більше</button>
+        </div>
+        <img src="{% static 'implementation/img/main-girl.svg' %}" alt="">
+    </div>
+    <div class="d-flex justify-content-around align-items-center mb-5">
+        <div class="w-50">
+            <h1 class="main-need-h1">Все потрібне – в єдиній системі </h1>
+            <p class="main-need-p">Впровадження ERP-систем зміцнює позиції компанії на ринку і є значною конкурентною перевагою.
+                Автоматизуйте процеси та робіть ваш бізнес гнучким і адаптивним разом з ERP-Systems – це особливо важливо в кризові періоди.
+                Рішення від ERP-Systems – це нова екосистема ведення бізнесу.</p>
+        </div>
+        <img src="{% static 'implementation/img/all-needed.svg' %}" alt="">
+    </div>
+    <div class="d-flex justify-content-center justify-content-center w-100 mb-5">
+        <h1 class="main-need-h1">Чому варто довірити впровадження ERP для вашого бізнесу саме нам?</h1>
+    </div>
+    <div class="d-flex justify-content-around align-items-center mb-5">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'implementation/img/card-img1.svg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Спеціалізація</h5>
+              <p class="card-text">Компанія ERP-Systems – це команда досвідчених фахівців з розробки та автоматизації. Ми багато років створюємо й успішно впроваджуємо рішення та пропонуємо бізнесам оптимальні варіанти автоматизації.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'implementation/img/card-img2.svg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Досвід</h5>
+              <p class="card-text">Ми використовуємо практичний досвід провідних фахівців України в сфері обліку та фінансів, будуючи свої рішення для галузевих напрямків та регламентованого бухгалтерського обліку.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'implementation/img/card-img3.svg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Навчання</h5>
+              <p class="card-text">При кожному впровадженні ми приділяємо окрему увагу навчанню користувачів, що значно покращує ефективність проєкту для клієнта.</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="w-100 d-flex align-items-center flex-column">
+            <h1 class="main-stage-h1">Етапи впровадження</h1>
+            <p class="main-stage-p w-50">При плануванні кожного етапу реалізації проєкту ми приділяємо увагу всім нюансам і особливостям вашого бізнесу аби повністю задовольнити вимоги, дотримуючись строків і високих стандартів розробки програмного забезпечення.</p>
+        </div>
+        <div class="d-flex mt-5 mb-5 justify-content-center">
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Аналіз</h1>
+                <h1 class="main-stage-p2 w-75">Контактуємо та уточнюємо деталі та потребі бізнесу</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Розробка</h1>
+                <h1 class="main-stage-p2 w-75">Розробляємо та узгоджуємо логіку впровадження</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Розгортання</h1>
+                <h1 class="main-stage-p2 w-75">Налаштовуємо систему та навчаємо людей</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Підтримка</h1>
+                <h1 class="main-stage-p2 w-75">Залишаємось на зв’язку для постійної підтримки та оновлень</h1>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex banner-form main-form">
+            <div>
+                <form class="d-flex flex-column gap-4 justify-content-center">
+                    <h1>Форма запиту на консультацію</h1>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ім'я та прізвище *</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Назва компанії *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword2">Телефон *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword3">Email *</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Надіслати</button>
+                </form>
+            </div>
+            <img src="{% static 'implementation/img/banner-form.svg' %}" alt="">
+        </div>
+    </div>
+</main>
+{% endblock %}

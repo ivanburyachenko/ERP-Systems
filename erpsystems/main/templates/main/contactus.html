@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'contactus/css/contactus.css' %}">
+{% endblock %}
+{% block main %}
+<main class="d-flex w-100 justify-content-between">
+    <div class="d-flex flex-column gap-5 w-50 align-items-center justify-content-center contact-info">
+        <h1>Контактна інформація</h1>
+        <div class="d-flex gap-2 align-items-center">
+            <img src="{% static 'contactus/img/main-contacts-img1.svg' %}" alt="">
+            <p>info@erp-systems.com</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <img src="{% static 'contactus/img/main-contacts-img2.svg' %}" alt="">
+            <p>ERP-SYSTEMS LIMITED LIABILITY COMPANY</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <img src="{% static 'contactus/img/main-contacts-img3.svg' %}" alt="">
+            <p>Ivan Akinfiev street, 18, Dnipro, Dnipropetrovsk region, 49000</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <img src="{% static 'contactus/img/main-contacts-img4.svg' %}" alt="">
+            <p>support@erp-systems.com</p>
+        </div>
+    </div>
+    <div class="main-form">
+        <form class="d-flex flex-column gap-5 justify-content-center">
+            <div class="form-group">
+                <label for="exampleInputEmail1">ПІБ *</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Телефон *</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword2">Email *</label>
+                <input type="password" class="form-control" id="exampleInputPassword2">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword3">Компанія *</label>
+                <input type="password" class="form-control" id="exampleInputPassword3">
+            </div>
+            <button type="submit" class="btn btn-primary">Надіслати</button>
+            </form>
+    </div>
+</main>
+{% endblock %}

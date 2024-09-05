@@ -1,0 +1,102 @@
+.main-header-h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.main-header-h2{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: #552C4A;
+}
+.main-need-h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.main-need-p{
+    font-size: 15px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.card-title{
+    font-size: 32px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.card-text{
+    font-size: 16px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.card{
+    filter: drop-shadow(0px 10px 4px #C6C8CA);
+    justify-content: center;
+    height: 400px;
+}
+.main-stage-h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.main-stage-p{
+    font-size: 16px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    text-align: center;
+}
+.main-stage-h2{
+    font-size: 32px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    width: 50%;
+}
+.main-stage-p2{
+    font-size: 20px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    text-align: center;
+}
+.stage-item{
+    width: 400px;
+}
+.banner-form{
+    background-color: #552C4A;
+    padding: 50px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.main-form label{
+    color: white;
+}
+.main-form h1{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.main-form h2{
+    font-size: 16px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.main-form input{
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px 40px 10px 40px;
+}
+.main-form button{
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px 40px 10px 40px;
+}

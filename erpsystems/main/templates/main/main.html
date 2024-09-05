@@ -1,0 +1,147 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="main-open d-flex align-items-center justify-content-center w-100">
+        <div class="w-50">
+            <h1 class="main-preview-text-1">Сучасні рішення,</h1>
+            <h1 class="main-preview-text-2">які змінять бізнес на краще</h1>
+            <p class="main-preview-text-3 ">ERP-Systems – українська компанія-інтегратор комплексних автоматизованих рішень для розвитку та управління бізнесом</p>
+            <button type="button" class="btn header-btn btn-primary">Отримати консультацію</button>
+        </div>
+        <img src="{% static 'main/img/main-preview.svg' %}" alt="">
+    </div>
+    <div class="container">
+        <h1 class="main-services-text">Пропонуємо найбільш актуальні для українського ринку можливості</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-6">
+                <div class="custom-grid-item">УПРАВЛІННЯ ПРОЕКТАМИ</div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="custom-grid-item">ПРОДАЖІ</div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-6">
+                <div class="custom-grid-item">ПОВНОЦІННА CRM</div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="custom-grid-item">СКЛАДСЬКИЙ ОБЛІК</div>
+            </div>
+        </div>
+        <div class="d-flex gap-5  m-5 w-100">
+            <img src="{% static 'main/img/main-services-img1.svg' %}" alt="">
+            <div class="d-flex justify-content-center flex-column gap-2">
+                <h1 class="main-services-card-h1">Управління проєктами</h1>
+                <h1 class="main-services-card-h2">Впроваджуйте проєкти з впевненістю та досягайте неймовірних результатів!</h1>
+                <p class="main-services-card-p">Ефективно керуйте проєктами від постановки цілей до виконання завдань, відстежуйте графік виконання робіт, розподіляйте ресурси та спілкуйтесь з командою, щоб забезпечити успішне завершення проєктів.</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-5 align-items-center">
+        <div class="main-under-services d-flex gap-3">
+            <h1 class="main-under-services-h1">Впровадження ERP-систем зміцнює позиції компанії на ринку і є значною конкурентною перевагою</h1>
+            <div class="d-flex flex-column">
+                <p class="main-under-services-p">Автоматизація бізнесу за допомогою новітнього удосконаленого функціоналу робить ваш бізнес адаптивним та гнучким. Тож почніть сучасну автоматизацію просто зараз разом зі ERP-Systems</p>
+                <button type="button" class="btn header-btn btn-primary">Отримати консультацію</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="w-100 d-flex align-items-center flex-column">
+            <h1 class="main-stage-h1">Етапи впровадження</h1>
+            <p class="main-stage-p w-50">При плануванні кожного етапу реалізації проєкту ми приділяємо увагу всім нюансам і особливостям вашого бізнесу аби повністю задовольнити вимоги, дотримуючись строків і високих стандартів розробки програмного забезпечення.</p>
+        </div>
+        <div class="d-flex mt-5 mb-5 justify-content-center">
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Аналіз</h1>
+                <h1 class="main-stage-p2 w-75">Контактуємо та уточнюємо деталі та потребі бізнесу</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Розробка</h1>
+                <h1 class="main-stage-p2 w-75">Розробляємо та узгоджуємо логіку впровадження</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Розгортання</h1>
+                <h1 class="main-stage-p2 w-75">Налаштовуємо систему та навчаємо людей</h1>
+            </div>
+            <div class="d-flex stage-item gap-3 flex-column">
+                <img width="60px" src="{% static 'main/img/main-stage-img.svg' %}" alt="">
+                <h1 class="main-stage-h2">Підтримка</h1>
+                <h1 class="main-stage-p2 w-75">Залишаємось на зв’язку для постійної підтримки та оновлень</h1>
+            </div>
+        </div>
+    </div>
+    <div class="main-form">
+        <div class="main-form-text w-50">
+            <h1>Обирайте оптимальне рішення для вашого бізнесу</h1>
+            <h2>Отримайте безкоштовну консультацію від експертів ERP-Systems – заповніть цю просту форму, і ми зв’яжемося з вами у робочий час.</h2>
+        </div>
+        <div>
+            <form class="d-flex flex-column gap-5 justify-content-center">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ПІБ *</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Телефон *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Email *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword3">Компанія *</label>
+                    <input type="password" class="form-control" id="exampleInputPassword3">
+                </div>
+                <button type="submit" class="btn btn-primary">Надіслати</button>
+            </form>
+        </div>
+    </div>
+    <div class="d-flex flex-column align-items-center gap-5 mb-5">
+        <h1 class="main-questions-h1">Запитання і відповіді</h1>
+        <div class="d-flex justify-content-center gap-5">
+            <img src="{% static 'main/img/main-questions-img.svg' %}" alt="">
+            <div class="main-questions-text">
+                <h1 class="main-questions-h1">Що таке ERP система?</h1>
+                <p class="main-questions-p">ERP система – це набір програмних інструментів для ефективного управління бізнес-процесами, від англійського Enterprise Resource Planning – “планування ресурсів підприємства”. Але тепер ERP-система (в Україні ще пишуть по-різному – ЕРП, Ерп, ерп, erp) дозволяє не лише планувати ресурси, а й проводити аналітику, вивчати тренди, робити дослідження та впливати на розвиток компанії.</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5">
+            <img src="{% static 'main/img/main-questions-img.svg' %}" alt="">
+            <div class="main-questions-text">
+                <h1 class="main-questions-h1">Навіщо потрібна ERP система?</h1>
+                <p class="main-questions-p">Система ERP – це основний інструмент керівника або власника компанії, який може приймати ефективні рішення. ERP-системи використовують не лише керівники, а й ланки всіх рівнів управління компанією – для відстеження процесів, поточного стану закупівель та продажів, ведення управлінського та бухгалтерського обліку.</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5">
+            <img src="{% static 'main/img/main-questions-img.svg' %}" alt="">
+            <div class="main-questions-text">
+                <h1 class="main-questions-h1">У чому різниця між CRM та ERP-системами?</h1>
+                <p class="main-questions-p">ERP система – це набір програмних інструментів для ефективного управління бізнес-процесами, від англійського Enterprise Resource Planning – “планування ресурсів підприємства”. Але тепер ERP-система (в Україні ще пишуть по-різному – ЕРП, Ерп, ерп, erp) дозволяє не лише планувати ресурси, а й проводити аналітику, вивчати тренди, робити дослідження та впливати на розвиток компанії.</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5">
+            <img src="{% static 'main/img/main-questions-img.svg' %}" alt="">
+            <div class="main-questions-text">
+                <h1 class="main-questions-h1">Хто використовує ERP-систему?</h1>
+                <p class="main-questions-p">Систему ERP використовують у всіх ключових процесах компанії. Важливо, щоб всі процеси були саме частиною єдиної системи, та дані оновлювались та інтегрувались між собою.</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5">
+            <img src="{% static 'main/img/main-questions-img.svg' %}" alt="">
+            <div class="main-questions-text">
+                <h1 class="main-questions-h1">Скільки коштує ERP-система?</h1>
+                <p class="main-questions-p">Вартість ERP-системи залежить від багатьох факторів. Наприклад, вартість ліцензії становить від 12 євро на місяць за користувача, окремо сплачується вартість налаштування або дороопрацювання. Сьогодні, на відміну від минулого, ERP-система розглядається не як витрати, а як інвестиція, що надає компанії вагому конкурентну перевагу та стимулює розвиток.</p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

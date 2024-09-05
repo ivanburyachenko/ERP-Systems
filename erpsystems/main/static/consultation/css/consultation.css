@@ -1,0 +1,61 @@
+.main-banner{
+    height: 100vh;
+}
+.main-banner button{
+    width: 250px;
+}
+.main-banner h1{
+    font-size: 64px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.main-banner p{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.consultation-offer h1{
+    font-size: 40px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.consultation-offer p{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.banner-form{
+    background-color: #552C4A;
+    padding: 50px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.main-form label{
+    color: white;
+}
+.main-form h1{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.main-form h2{
+    font-size: 16px;
+    font-weight: medium;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.main-form input{
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px 40px 10px 40px;
+}
+.main-form button{
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px 40px 10px 40px;
+}

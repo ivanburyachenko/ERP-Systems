@@ -1,0 +1,55 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link defer rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
+    <link defer rel="stylesheet" href="{% static 'base/css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    {% block links %}
+    {% endblock %}
+    <title>Document</title>
+</head>
+<body>
+    <header class="d-flex shadow-custom align-items-center justify-content-around w-100 full-width-div">
+        <a href="{% url 'main' %}"><img class="cursor-pointer" src="{% static 'base/img/header-img.svg' %}" alt=""></a>
+        <div class="d-flex align-items-center justify-content-around w-50">
+            <h1 class="header-item cursor-pointer"><a href="{% url 'product' %}">Функціонал</a></h1>
+            <h1 class="header-item cursor-pointer"><a href="">Послуги</a></h1>
+            <h1 class="header-item cursor-pointer"><a href="{% url 'contactus' %}">Зв'яжіться з нами</a></h1>
+            <button type="button" class="btn header-btn btn-primary">Спробувати</button>
+        </div>
+        <div>
+            <img class="cursor-pointer" src="{% static 'base/img/header-auth.svg' %}" alt="">
+        </div>
+    </header>
+    {% block main %}
+    {% endblock %}
+    <footer class="w-100 d-flex justify-content-around pt-4">
+        <div class="d-flex flex-column align-items-center gap-2">
+            <img width="200px" src="{% static 'base/img/footer-img.svg' %}" alt="">
+            <div>
+                <img width="50px" src="{% static 'base/img/footer-facebook.svg' %}" alt="">
+                <img width="50px" src="{% static 'base/img/footer-linkedin.svg' %}" alt="">
+                <img width="50px" src="{% static 'base/img/footer-youtube.svg' %}" alt="">
+            </div>
+            <h1 class="footer-text">©2024 ERP-Systems LLC</h1>
+        </div>
+        <div>
+            <h1 class="footer-text-header">Послуги</h1>
+            <h1 class="footer-links">Впровадження</h1>
+            <h1 class="footer-links">Консультації</h1>
+            <h1 class="footer-links">Навчання</h1>
+            <h1 class="footer-links">Підтримка</h1>
+        </div>
+        <div>
+            <h1 class="footer-text-header">Про нас</h1>
+            <h1 class="footer-links">Блог</h1>
+            <h1 class="footer-links">Події</h1>
+            <h1 class="footer-links">Контакти</h1>
+        </div>
+    </footer>
+</body>
+</html>
