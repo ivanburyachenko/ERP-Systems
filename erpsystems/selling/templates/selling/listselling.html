@@ -1,0 +1,9 @@
+{% for order in orders %}
+    <div class="order-card">
+        <a href="{% url 'order' order.slug %}"><h2>{{order.number}}</h2></a>
+        <p>{{order.date_order}}</p>
+        <p>{{order.client_email}}</p>
+        <p>{{order.status}}</p>
+        <p>{{order.total_payable}} грн</p>
+    </div>
+{% endfor %}

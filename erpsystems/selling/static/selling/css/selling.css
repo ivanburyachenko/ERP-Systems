@@ -25,10 +25,40 @@ main h1{
     text-decoration: underline;
     cursor: pointer;
 }
+.order-card a{
+    width: calc(100%/5);
+    text-align: center;
+}
 .order-card p{
     width: calc(100%/5);
     font-size: 14px;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     color: black;
+}
+.filter{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding: 30px 0px 30px 0px;
+}
+.filter-item{
+    width: 300px;
+}
+.filter-item h2{
+    white-space: nowrap;
+}
+.under-filter p{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    text-decoration: underline;
+}
+.under-filter{
+    padding: 20px;
+    cursor: pointer;
 }
