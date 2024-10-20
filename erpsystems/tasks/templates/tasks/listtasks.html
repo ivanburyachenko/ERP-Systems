@@ -1,0 +1,9 @@
+{% for task in tasks %}
+    <div class="task-card">
+        <a href="{% url 'task' task.slug %}"><h2>{{task.number}}</h2></a>
+        <p>{{task.date_start}}</p>
+        <p>{{task.status}}</p>
+        <p>{{task.priority}}</p>
+        <p>{{task.progress}}%</p>
+    </div>
+{% endfor %}

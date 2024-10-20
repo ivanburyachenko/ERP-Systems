@@ -22,36 +22,26 @@ def employee(request, slug):
     return render(request, 'accounting/employee.html',context)
 
 def filter_employees(request):
-    sort_by = request.GET.get('filter')  # Изменено на 'filter'
+    sort_by = request.GET.get('filter') 
     order = request.GET.get('order')
     filter_by = request.GET.get('filter')
     filter_value = request.GET.get('value')
 
     employees = Employee.objects.all()
-
-    # Сортировка по имени
     if sort_by == 'name':
         if order == 'asc':
             employees = employees.order_by('first_name')
         else:
             employees = employees.order_by('-first_name')
-
-    # Сортировка по дате приёма
     elif sort_by == 'hiring_date':
         if order == 'asc':
             employees = employees.order_by('hiring_date')
         else:
             employees = employees.order_by('-hiring_date')
-
-    # Фильтрация по позиции
     if filter_by == 'посада':
         employees = employees.filter(position=filter_value)
-
-    # Фильтрация по статусу
     elif filter_by == 'статус':
         employees = employees.filter(status=filter_value)
-
-    # Фильтрация по расписанию
     elif filter_by == 'розклад':
         employees = employees.filter(schedule=filter_value)
     return render(request, 'accounting/listemployees.html', {'employees': employees})

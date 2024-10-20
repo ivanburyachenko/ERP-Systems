@@ -42,5 +42,6 @@ urlpatterns = [
     path('task/<slug>', task, name='task'),
     path('order/<slug>', order, name='order'),
     path('filter_employees/', filter_employees, name='filter_employees'),
-    path('filter_orders', filter_orders, name='filter_orders')
+    path('filter_orders/', filter_orders, name='filter_orders'),
+    path('filter_tasks/', filter_tasks, name='filter_tasks')
 ]
