@@ -50,3 +50,14 @@ main h1{
 .filter-item h2{
     white-space: nowrap;
 }
+.under-filter p{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    text-decoration: underline;
+}
+.under-filter{
+    padding: 20px;
+    cursor: pointer;
+}
