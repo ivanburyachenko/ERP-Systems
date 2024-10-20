@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'accounting/css/accounting.css' %}">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="{% static 'accounting/js/script.js' %}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block main %}
+<main>
+    <h1>Список співробітників</h1>
+    <div class="filter">
+        <div class="filter-item d-flex gap-3" role="button">
+            <h2>Ім'я</h2>
+            <img src="{% static 'accounting/img/filter-item.svg' %}" alt="">
+        </div>
+        <div class="dropdown">
+            <div class="filter-item d-flex gap-3" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h2>Посада</h2>
+                <img src="{% static 'accounting/img/filter-item.svg' %}" alt="">
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for i in positions %}
+                    <a class="dropdown-item" href="#">{{i}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="filter-item d-flex gap-3" role="button">
+            <h2>Дата прийому</h2>
+            <img src="{% static 'accounting/img/filter-item.svg' %}" alt="">
+        </div>
+        <div class="dropdown">
+            <div class="filter-item d-flex gap-3" role="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h2>Статус</h2>
+                <img src="{% static 'accounting/img/filter-item.svg' %}" alt="">
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for i in statuses %}
+                    <a class="dropdown-item" href="#">{{i}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="filter-item d-flex gap-3" role="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h2>Розклад</h2>
+                <img src="{% static 'accounting/img/filter-item.svg' %}" alt="">
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                {% for i in schedules %}
+                    <a class="dropdown-item" href="#">{{i}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'accounting/listemployees.html' %}
+</main>
+{% endblock %}

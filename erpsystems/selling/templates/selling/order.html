@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'selling/css/order.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <h1>Інформація про замовлення</h1>
+    <div class="block">
+        <div class="upper-name">Основная информация</div>
+        <table>
+            <tr>
+                <td>Номер замовлення</td>
+                <td>{{order.number}}</td>
+            </tr>
+            <tr>
+                <td>Дата замовлення</td>
+                <td>{{order.date_order}}</td>
+            </tr>
+            <tr>
+                <td>Статус замовлення</td>
+                <td>{{order.status}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Інформація про клієнта</div>
+        <table>
+            <tr>
+                <td>Ім'я клієнта</td>
+                <td>{{order.client_name}}</td>
+            </tr>
+            <tr>
+                <td>Телефон</td>
+                <td>{{order.client_phone_number}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{order.client_email}}</td>
+            </tr>
+            <tr>
+                <td>Адреса доставки</td>
+                <td>{{order.delivery_address}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Вартість</div>
+        <table>
+            <tr>
+                <td>Підсумкова сума</td>
+                <td>{{order.price}}</td>
+            </tr>
+            <tr>
+                <td>Знижка</td>
+                <td>{{order.discount}}</td>
+            </tr>
+            <tr>
+                <td>Разом до оплати</td>
+                <td>{{order.total_payable}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Поточні завдання</div>
+        {% for product in order.products.all %}
+            <div class="task">
+                <p><strong>Назва товару:</strong> {{product.name}}</p>
+                <p><strong>Ціна за одиницю:</strong> {{product.price}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+</main>
+{% endblock %}

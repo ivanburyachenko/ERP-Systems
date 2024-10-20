@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'salary',
     'selling',
     'tasks',
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [

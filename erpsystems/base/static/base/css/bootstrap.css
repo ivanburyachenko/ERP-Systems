@@ -6280,7 +6280,7 @@ fieldset:disabled .btn {
 }
 
 .modal-content {
-  --bs-modal-bg: #D7BBE9;
+  --bs-modal-bg: white;
   position: relative;
   display: flex;
   flex-direction: column;

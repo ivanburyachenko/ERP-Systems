@@ -1,0 +1,43 @@
+.main-h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    text-align: center;
+}
+.card-h1{
+    left: 10;
+    top: 10;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    color: #552C4A;
+    white-space: nowrap;
+}
+.card-h2{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    white-space: nowrap;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #552C4A;
+    border-radius: 10px;
+    padding: 50px 100px;
+    width: 600px;
+}
+a{
+    text-decoration: none;
+}
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin: 70px;
+}

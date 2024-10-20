@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'tasks/css/task.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <h1>Інформація про завдання</h1>
+    <div class="block">
+        <div class="upper-name">Основна інформація</div>
+        <table>
+            <tr>
+                <td>Номер завдання</td>
+                <td>{{task.number}}</td>
+            </tr>
+            <tr>
+                <td>Дата завдання</td>
+                <td>{{task.date_start}}</td>
+            </tr>
+            <tr>
+                <td>Статус</td>
+                <td>{{task.status}}</td>
+            </tr>
+            <tr>
+                <td>Пріоритет</td>
+                <td>{{task.priority}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Описание задания</div>
+        <p><strong>{{task.description}}</strong></p>
+    </div>
+    <div class="block">
+        <div class="upper-name">Відповідальний співробітник</div>
+        <table>
+            <tr>
+                <td>Ім'я співробітника</td>
+                <td>
+                    {% for emp in task.employee.all %}
+                        {{ emp.first_name }} {{ emp.last_name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>Позиція</td>
+                <td>
+                    {% for emp in task.employee.all %}
+                        {{ emp.position }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Терміни виконання</div>
+        <table>
+            <tr>
+                <td>Дата початку</td>
+                <td>{{task.date_start}}</td>
+            </tr>
+            <tr>
+                <td>Дата закінчення</td>
+                <td>{{task.date_finish}}</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+</main>
+{% endblock %}

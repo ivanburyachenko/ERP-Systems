@@ -1,0 +1,11 @@
+<div>
+    {% for employee in employees %}
+        <div class="employee-card">
+            <a href="{% url 'employee' employee.slug %}"><h2>{{employee.first_name}} {{employee.last_name}} {{employee.patronymic}}</h2></a>
+            <p>{{employee.position}}</p>
+            <p>{{employee.hiring_date}}</p>
+            <p>{{employee.status}}</p>
+            <p>{{employee.schedule}}</p>
+        </div>
+    {% endfor %}
+</div>

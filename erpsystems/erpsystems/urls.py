@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import *
+from base.views import *
+from salary.views import *
+from selling.views import *
+from accounting.views import *
+from tasks.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +30,15 @@ urlpatterns = [
     path('product/', product, name='product'),
     path('implementation/', implementation, name='implementation'),
     path('consultation/', consultation, name='consultation'),
-    path('support/', support, name='support')
+    path('support/', support, name='support'),
+    path('register/', register, name='register'),
+    path('auth/',auth, name='auth'),
+    path('personal/', personal, name='personal'),
+    path('accounting/', accounting, name='accounting'),
+    path('salary/', salary, name='salary'),
+    path('selling/', selling, name='selling'),
+    path('tasks/', tasks, name='tasks'),
+    path('employee/<slug>', employee, name='employee'),
+    path('task/<slug>', task, name='task'),
+    path('order/<slug>', order, name='order')
 ]

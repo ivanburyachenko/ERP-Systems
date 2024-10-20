@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'base/css/personal.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <h1 class="main-h1 w-100">Головна панель керування</h1>
+    <div class="cards-container">
+        <a href="{% url 'accounting' %}">
+            <div class="card">
+                <h1 class="card-h1">КАДРОВИЙ ОБЛІК</h1>
+                <div>
+                    <h2 class="card-h2">Загальна кількість працівників: {{employers|length}}</h2>
+                    <h2 class="card-h2">Кількість нових співробітників за місяць: {{employers_new|length}}</h2>
+                    <h2 class="card-h2">Кількість працівників на лікарняному або у відпустці: {{employers_rest|length}}</h2>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'salary' %}">
+            <div class="card">
+                <h1 class="card-h1">ЗАРОБІТНА ПЛАТА</h1>
+                <div>
+                    <h2 class="card-h2">Загальна сума виплат протягом місяця: {{salaries_month}} грн.</h2>
+                    <h2 class="card-h2">Кількість працівників, які отримали зарплату: {{salaries_get|length}}</h2>
+                    <h2 class="card-h2">Запланована сума виплат наступного місяця: {{salaries_month}} грн.</h2>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'selling' %}">
+            <div class="card">
+                <h1 class="card-h1">КЕРУВАННЯ ПРОДАЖАМИ</h1>
+                <div>
+                    <h2 class="card-h2">Загальний обсяг продажів: {{orders_total}} грн.</h2>
+                    <h2 class="card-h2">Кількість нових замовлень: {{orders_new|length}}</h2>
+                    <h2 class="card-h2">Поточні замовлення в процесі: {{orders_in_process|length}}</h2>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'tasks' %}">
+            <div class="card">
+                <h1 class="card-h1">УПРАВЛІННЯ ЗАВДАННЯМИ</h1>
+                <div>
+                    <h2 class="card-h2">Загальна кількість завдань: {{tasks|length}}</h2>
+                    <h2 class="card-h2">Кількість виконаних завдань: {{tasks_ended|length}}</h2>
+                    <h2 class="card-h2">Кількість прострочених завдань: {{tasks_overdue|length}}</h2>
+                </div>
+            </div>
+        </a>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'accounting/css/employee.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <h1>{{employee.first_name}} {{employee.last_name}} {{employee.patronymic}}</h1>
+    <div class="block">
+        <div class="upper-name">Особисті дані</div>
+        <table>
+            <tr>
+                <td>Дата народження</td>
+                <td>{{employee.date_of_birthday}}</td>
+            </tr>
+            <tr>
+                <td>Стать</td>
+                <td>{{employee.gender}}</td>
+            </tr>
+            <tr>
+                <td>Адреса</td>
+                <td>{{employee.residential_address}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Контактна інформація</div>
+        <table>
+            <tr>
+                <td>Телефон</td>
+                <td>{{employee.phone_number}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{employee.email}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Робоча інформація</div>
+        <table>
+            <tr>
+                <td>Позиція</td>
+                <td>{{employee.position}}</td>
+            </tr>
+            <tr>
+                <td>Дата прийому на роботу</td>
+                <td>{{employee.hiring_date}}</td>
+            </tr>
+            <tr>
+                <td>Статус</td>
+                <td>{{employee.status}}</td>
+            </tr>
+            <tr>
+                <td>Графік роботи</td>
+                <td>{{employee.schedule}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="block">
+        <div class="upper-name">Поточні завдання</div>
+        {% for task in tasks %}
+            <div class="task">
+                <p><strong>Номер завдання:</strong> {{task.number}}</p>
+                <p><strong>Опис:</strong> {{task.description}}</p>
+                <p><strong>Дата початку:</strong> {{task.date_start}}</p>
+                <p><strong>Дата закінчення:</strong> {{task.date_finish}}</p>
+                <p><strong>Пріоритет:</strong> {{task.priority}}</p>
+                <p><strong>Статус:</strong> {{task.status}}</p>
+                <p><strong>Прогрес:</strong> {{task.progress}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+</main>
+{% endblock %}

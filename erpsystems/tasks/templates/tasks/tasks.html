@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'tasks/css/tasks.css' %}">
+{% endblock %}
+{% block main %}
+<main>
+    <h1>Список завдань</h1>
+    <div>
+        {% for task in tasks %}
+            <div class="task-card">
+                <a href="{% url 'task' task.slug %}"><h2>{{task.number}}</h2></a>
+                <p>{{task.date_start}}</p>
+                <p>{{task.status}}</p>
+                <p>{{task.priority}}</p>
+                <p>{{task.progress}}%</p>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
