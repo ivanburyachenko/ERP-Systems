@@ -62,3 +62,23 @@ $(document).on('click', '#clear-filters', function () {
         }
     });
 });
+$(document).ready(function() {
+    $('#employeeForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        $.ajax({
+            type: 'POST',
+            url: $('#addEmployeeUrl').val(), // Adjust this to your URL for adding an employee
+            data: $(this).serialize(),
+            success: function(response) {
+                // Handle success, e.g., close modal and refresh employee list
+                $('#employeeModal').modal('hide');
+                // Optionally, add new employee data to the table or refresh it
+                alert('Співробітника успішно додано!');
+            },
+            error: function(xhr, status, error) {
+                alert('Сталася помилка: ' + error);
+            }
+        });
+    });
+});

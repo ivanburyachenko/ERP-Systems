@@ -46,4 +46,7 @@ urlpatterns = [
     path('filter_tasks/', filter_tasks, name='filter_tasks'),
     path('update_salary/<int:id>/', update_salary, name='update_salary'),
     path('delete_salary/<int:id>/', delete_salary, name='delete_salary'),
+    path('add_employee/', add_employee, name='add_employee'),
+    path('add_order/', add_order, name='add_order'),
+    path('add_task/', add_task, name='add_task'),
 ]

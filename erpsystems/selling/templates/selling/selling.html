@@ -42,6 +42,79 @@
     <div class="under-filter" id="clear-filters">
         <p>Очистити все</p>
     </div>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">
+        Додати замовлення
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Додати замовлення</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderForm">
+                        {% csrf_token %}
+                        <input type="hidden" id="addOrderUrl" value="{% url 'add_order' %}">
+                        <div class="form-group">
+                            <label for="date_order">Дата замовлення</label>
+                            <input type="date" class="form-control" name="date_order" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Статус</label>
+                            <select class="form-control" name="status">
+                                <option value="Не розпочато">Не розпочато</option>
+                                <option value="У процесі">У процесі</option>
+                                <option value="Завершено">Завершено</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="client_name">Ім'я клієнта</label>
+                            <input type="text" class="form-control" name="client_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client_phone_number">Телефон клієнта</label>
+                            <input type="text" class="form-control" name="client_phone_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client_email">Email клієнта</label>
+                            <input type="email" class="form-control" name="client_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery_address">Адреса доставки</label>
+                            <input type="text" class="form-control" name="delivery_address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Ціна</label>
+                            <input type="number" class="form-control" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="discount">Знижка</label>
+                            <input type="number" class="form-control" name="discount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_payable">Загальна сума</label>
+                            <input type="number" class="form-control" name="total_payable" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="products">Товари</label>
+                            <select class="form-control" name="products" multiple>
+                                {% for product in products %}
+                                    <option value="{{ product.id }}">{{ product.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Додати замовлення</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="orders-list">
         {% include 'selling/listselling.html' %}
     </div>

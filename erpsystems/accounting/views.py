@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from base.models import Employee, Task
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.text import slugify
 # Create your views here.
 def accounting(request):
     employees = Employee.objects.filter(user=request.user)
@@ -45,3 +48,41 @@ def filter_employees(request):
     elif filter_by == 'розклад':
         employees = employees.filter(schedule=filter_value)
     return render(request, 'accounting/listemployees.html', {'employees': employees})
+
+@csrf_exempt
+def add_employee(request):
+    if request.method == 'POST':
+        # Extract data from the request
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        patronymic = request.POST.get('patronymic')
+        date_of_birthday = request.POST.get('date_of_birthday')
+        gender = request.POST.get('gender')
+        residential_address = request.POST.get('residential_address')
+        phone_number = request.POST.get('phone_number')
+        email = request.POST.get('email')
+        position = request.POST.get('position')
+        hiring_date = request.POST.get('hiring_date')
+        status = request.POST.get('status')
+        schedule = request.POST.get('schedule')
+
+        # Create and save the new employee
+        employee = Employee.objects.create(
+            user=request.user,  # Adjust as needed
+            first_name=first_name,
+            last_name=last_name,
+            patronymic=patronymic,
+            date_of_birthday=date_of_birthday,
+            gender=gender,
+            residential_address=residential_address,
+            phone_number=phone_number,
+            email=email,
+            position=position,
+            hiring_date=hiring_date,
+            status=status,
+            schedule=schedule,
+            slug=f"{first_name}-{last_name}"
+        )
+        return JsonResponse({'status': 'success', 'employee_id': employee.id})
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'})

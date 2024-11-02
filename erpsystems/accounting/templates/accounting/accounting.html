@@ -56,7 +56,89 @@
     <div class="under-filter" id="clear-filters">
         <p >Очистити все</p>
     </div>
-
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employeeModal">
+        Додати співробітника
+    </button>
+    
+    <!-- Modal Structure -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="employeeModalLabel">Додати нового співробітника</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="employeeForm">
+                        {% csrf_token %}
+                        <input type="hidden" id="addEmployeeUrl" value="{% url 'add_employee' %}">
+                        <div class="form-group">
+                            <label for="first_name">Ім'я</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Призвище</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patronymic">По батькові</label>
+                            <input type="text" class="form-control" id="patronymic" name="patronymic">
+                        </div>
+                        <div class="form-group">
+                            <label for="date_of_birthday">Дата народження</label>
+                            <input type="date" class="form-control" id="date_of_birthday" name="date_of_birthday" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Стать</label>
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="Чоловік">Чоловік</option>
+                                <option value="Жінка">Жінка</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="residential_address">Адреса проживання</label>
+                            <input type="text" class="form-control" id="residential_address" name="residential_address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Номер телефону</label>
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Електронна пошта</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Посада</label>
+                            <input type="text" class="form-control" id="position" name="position" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hiring_date">Дата прийняття на роботу</label>
+                            <input type="date" class="form-control" id="hiring_date" name="hiring_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Статус</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="Працює">Працює</option>
+                                <option value="У відпустці">У відпустці</option>
+                                <option value="На лікарняному">На лікарняному</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="schedule">Графік роботи</label>
+                            <select class="form-control" id="schedule" name="schedule">
+                                <option value="Повний день">Повний день</option>
+                                <option value="Перша зміна">Перша зміна</option>
+                                <option value="Друга зміна">Друга зміна</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Додати співробітника</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="employee-list">
         {% include 'accounting/listemployees.html' %}
     </div>

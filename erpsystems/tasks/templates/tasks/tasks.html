@@ -49,6 +49,75 @@
     <div class="under-filter" id="clear-filters">
         <p>Очистити все</p>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#taskModal">
+        Додати завдання
+    </button>
+    
+    <!-- The Modal -->
+    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskModalLabel">Додати завдання</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        {% csrf_token %}
+                        <input type="hidden" id="addTaskUrl" value="{% url 'add_task' %}">
+                        <div class="form-group">
+                            <label for="status">Статус</label>
+                            <select class="form-control" name="status" required>
+                                <option value="Не розпочато">Не розпочато</option>
+                                <option value="У процесі">У процесі</option>
+                                <option value="Завершено">Завершено</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Пріоритет</label>
+                            <select class="form-control" name="priority" required>
+                                <option value="Низький">Низький</option>
+                                <option value="Середній">Середній</option>
+                                <option value="Високий">Високий</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Опис</label>
+                            <textarea class="form-control" name="description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee">Співробітник</label>
+                            <select class="form-control" name="employee" multiple>
+                                <!-- Assuming you have employees available as options -->
+                                {% for employee in employees %}
+                                    <option value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_start">Дата початку</label>
+                            <input type="date" class="form-control" name="date_start" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_finish">Дата закінчення</label>
+                            <input type="date" class="form-control" name="date_finish" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="progress">Прогрес</label>
+                            <input type="number" class="form-control" name="progress" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Коментарі</label>
+                            <textarea class="form-control" name="comments" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Додати завдання</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="tasks-list">
         {% include 'tasks/listtasks.html' %}
     </div>

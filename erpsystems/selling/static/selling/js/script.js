@@ -88,3 +88,22 @@ $(document).on('click', '#clear-filters', function () {
         }
     });
 });
+$(document).ready(function() {
+    $('#orderForm').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: $('#addOrderUrl').val(),
+            data: $(this).serialize(),
+            success: function(response) {
+                alert('Замовлення успішно додано!');
+                $('#orderModal').modal('hide');
+                $('#orderForm')[0].reset();
+            },
+            error: function(xhr, status, error) {
+                alert('Сталася помилка: ' + error);
+            }
+        });
+    });
+});
