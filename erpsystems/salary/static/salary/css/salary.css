@@ -1,0 +1,65 @@
+#salaryTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+#salaryTable thead {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+}
+
+#salaryTable th,
+#salaryTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#salaryTable tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+#salaryTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+#salaryTable .edit-btn,
+#salaryTable .delete-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+#salaryTable .delete-btn {
+    background-color: #dc3545;
+}
+
+#salaryTable .edit-btn:hover,
+#salaryTable .delete-btn:hover {
+    opacity: 0.8;
+}
+
+[contenteditable="true"] {
+    background-color: #eaf4fc;
+    border: 1px dashed #007bff;
+    padding: 5px;
+}
+
+#salaryTable td, #salaryTable th {
+    min-width: 100px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+main{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

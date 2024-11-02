@@ -43,5 +43,7 @@ urlpatterns = [
     path('order/<slug>', order, name='order'),
     path('filter_employees/', filter_employees, name='filter_employees'),
     path('filter_orders/', filter_orders, name='filter_orders'),
-    path('filter_tasks/', filter_tasks, name='filter_tasks')
+    path('filter_tasks/', filter_tasks, name='filter_tasks'),
+    path('update_salary/<int:id>/', update_salary, name='update_salary'),
+    path('delete_salary/<int:id>/', delete_salary, name='delete_salary'),
 ]

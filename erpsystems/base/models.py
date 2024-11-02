@@ -54,6 +54,7 @@ class Order(models.Model):
 
 class Salary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    date = models.DateField(blank=True, null=True)
+    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
     amount = models.IntegerField()
     status = models.CharField(max_length=255, choices=[('Виплачено', 'Виплачено'), ('Не виплачено', 'Не виплачено')])
