@@ -12,7 +12,6 @@ $('.edit-task-btn').on('click', function() {
             $('#date_finish').val(data.date_finish);
             $('#progress').val(data.progress);
             $('#comments').val(data.comments);
-            $('#editTaskModal').modal('show');
         
         }
     });

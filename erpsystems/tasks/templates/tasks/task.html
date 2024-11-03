@@ -9,7 +9,6 @@
 {% endblock %}
 {% block main %}
 <main>
-    <button class="edit-task-btn btn btn-primary" data-task-id="{{ task.number }}">Редагувати</button>
     <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -45,6 +44,7 @@
         </div>
     </div>
     <h1>Інформація про завдання</h1>
+    <button class="edit-task-btn btn btn-primary" data-toggle="modal" data-target="#editTaskModal" data-task-id="{{ task.number }}">Редагувати</button>
     <div class="block">
         <div class="upper-name">Основна інформація</div>
         <table>
