@@ -2,6 +2,8 @@ from django.shortcuts import render
 from base.models import Employee, Task
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from phonenumber_field.modelfields import PhoneNumber
 from django.utils.text import slugify
 # Create your views here.
 def accounting(request):
@@ -86,3 +88,59 @@ def add_employee(request):
         return JsonResponse({'status': 'success', 'employee_id': employee.id})
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request'})
+
+@csrf_exempt
+def get_employee(request, employee_id):
+    try:
+        employee = Employee.objects.get(id=employee_id)
+        data = {
+            'id': employee.id,
+            'first_name': employee.first_name,
+            'last_name': employee.last_name,
+            'patronymic': employee.patronymic,
+            'date_of_birthday': employee.date_of_birthday.strftime('%Y-%m-%d'),
+            'gender': employee.gender,
+            'residential_address': employee.residential_address,
+            'phone_number': str(employee.phone_number),
+            'email': employee.email,
+            'position': employee.position,
+            'hiring_date': employee.hiring_date,
+            'status': employee.status,
+            'schedule': employee.schedule,
+        }
+        return JsonResponse(data)
+    except Employee.DoesNotExist:
+        return JsonResponse({'error': 'Employee not found'}, status=404)
+
+def update_employee(request, employee_id):
+    if request.method == 'POST':
+        employee = Employee.objects.get(id=employee_id)
+        employee.first_name = request.POST.get('first_name')
+        employee.last_name = request.POST.get('last_name')
+        employee.patronymic = request.POST.get('patronymic')
+        employee.date_of_birthday = request.POST.get('date_of_birthday')
+        employee.gender = request.POST.get('gender')
+        employee.residential_address = request.POST.get('residential_address')
+        employee.phone_number = request.POST.get('phone_number')
+        employee.email = request.POST.get('email')
+        employee.position = request.POST.get('position')
+        employee.hiring_date = request.POST.get('hiring_date')
+        employee.status = request.POST.get('status')
+        employee.schedule = request.POST.get('schedule')
+        employee.save()
+
+        # Возвращаем обновленные данные сотрудника, конвертируя phone_number в строку
+        return JsonResponse({
+            'first_name': employee.first_name,
+            'last_name': employee.last_name,
+            'patronymic': employee.patronymic,
+            'date_of_birthday': employee.date_of_birthday,
+            'gender': employee.gender,
+            'residential_address': employee.residential_address,
+            'phone_number': str(employee.phone_number),
+            'email': employee.email,
+            'position': employee.position,
+            'hiring_date': employee.hiring_date,
+            'status': employee.status,
+            'schedule': employee.schedule,
+        })

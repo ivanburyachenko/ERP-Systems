@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from base.views import Task, Employee
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def tasks(request):
     tasks = Task.objects.filter(user=request.user)
@@ -73,3 +74,43 @@ def add_task(request):
         return JsonResponse({'success': True})
 
     return render(request, 'your_template.html')
+@csrf_exempt
+def get_task(request, task_id):
+    try:
+        task = Task.objects.get(number=task_id)
+        data = {
+            'status': task.status,
+            'priority': task.priority,
+            'description': task.description,
+            'date_start': task.date_start,
+            'date_finish': task.date_finish,
+            'progress': task.progress,
+            'comments': task.comments,
+        }
+        return JsonResponse(data)
+    except Task.DoesNotExist:
+        return JsonResponse({'error': 'Task not found'}, status=404)
+
+@csrf_exempt
+def update_task(request, task_id):
+    if request.method == 'POST':
+        task = Task.objects.get(number=task_id)
+        task.status = request.POST.get('status')
+        task.priority = request.POST.get('priority')
+        task.description = request.POST.get('description')
+        task.date_start = request.POST.get('date_start')
+        task.date_finish = request.POST.get('date_finish')
+        task.progress = request.POST.get('progress')
+        task.comments = request.POST.get('comments')
+        task.save()
+        data = {
+            'status': task.status,
+            'priority': task.priority,
+            'description': task.description,
+            'date_start': task.date_start,
+            'date_finish': task.date_finish,
+            'progress': task.progress,
+            'comments': task.comments,
+        }
+        return JsonResponse(data)
+    return JsonResponse({'error': 'Invalid request'}, status=400)

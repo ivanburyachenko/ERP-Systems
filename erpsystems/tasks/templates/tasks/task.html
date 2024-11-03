@@ -2,9 +2,48 @@
 {% load static %}
 {% block links %}
 <link rel="stylesheet" href="{% static 'tasks/css/task.css' %}">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'tasks/js/task.js' %}" defer></script>
 {% endblock %}
 {% block main %}
 <main>
+    <button class="edit-task-btn btn btn-primary" data-task-id="{{ task.number }}">Редагувати</button>
+    <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="editTaskForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTaskModalLabel">Редагувати завдання</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="taskId" name="task_id">
+                        <label for="status">Статус:</label>
+                        <input type="text" id="status" name="status" class="form-control">
+                        <label for="priority">Пріоритет:</label>
+                        <input type="text" id="priority" name="priority" class="form-control">
+                        <label for="description">Опис:</label>
+                        <textarea id="description" name="description" class="form-control"></textarea>
+                        <label for="date_start">Дата початку:</label>
+                        <input type="date" id="date_start" name="date_start" class="form-control">
+                        <label for="date_finish">Дата завершення:</label>
+                        <input type="date" id="date_finish" name="date_finish" class="form-control">
+                        <label for="progress">Прогрес:</label>
+                        <input type="number" id="progress" name="progress" class="form-control">
+                        <label for="comments">Коментарі:</label>
+                        <textarea id="comments" name="comments" class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <h1>Інформація про завдання</h1>
     <div class="block">
         <div class="upper-name">Основна інформація</div>
@@ -25,11 +64,19 @@
                 <td>Пріоритет</td>
                 <td>{{task.priority}}</td>
             </tr>
+            <tr>
+                <td>Прогрес</td>
+                <td>{{task.progress}}</td>
+            </tr>
         </table>
     </div>
     <div class="block">
         <div class="upper-name">Описание задания</div>
         <p><strong>{{task.description}}</strong></p>
+    </div>
+    <div class="block">
+        <div class="upper-name">Коментарі</div>
+        <p><strong>{{task.comments}}</strong></p>
     </div>
     <div class="block">
         <div class="upper-name">Відповідальний співробітник</div>

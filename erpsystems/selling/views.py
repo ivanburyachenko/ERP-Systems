@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from base.views import Order, Product
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 # Create your views here.
 def selling(request):
     orders = Order.objects.filter(user=request.user)
@@ -74,3 +76,52 @@ def add_order(request):
         return JsonResponse({'success': True})
 
     return render(request, 'your_template.html') 
+
+@csrf_exempt  # This allows us to bypass CSRF verification for AJAX requests
+def get_order(request, order_id):
+    if request.method == 'GET':
+        try:
+            order = Order.objects.get(number=order_id)
+            data = {
+                'client_name': order.client_name,
+                'client_phone_number': str(order.client_phone_number),  # convert PhoneNumber to str
+                'client_email': order.client_email,
+                'delivery_address': order.delivery_address,
+                'price': order.price,
+                'discount': order.discount,
+                'total_payable': order.total_payable,
+                'status': order.status,
+            }
+            return JsonResponse(data)
+        except Order.DoesNotExist:
+            return JsonResponse({'error': 'Order not found'}, status=404)
+        
+@csrf_exempt
+def update_order(request, order_id):
+    if request.method == 'POST':
+        try:
+            order = Order.objects.get(number=order_id)
+            order.client_name = request.POST.get('client_name', order.client_name)
+            order.client_phone_number = request.POST.get('client_phone_number', order.client_phone_number)
+            order.client_email = request.POST.get('client_email', order.client_email)
+            order.delivery_address = request.POST.get('delivery_address', order.delivery_address)
+            order.price = int(request.POST.get('price', order.price))
+            order.discount = int(request.POST.get('discount', order.discount))
+            order.total_payable = int(request.POST.get('total_payable', order.total_payable))
+            order.status = request.POST.get('status', order.status)
+
+            order.save()
+            data = {
+                'client_name': order.client_name,
+                'client_phone_number': str(order.client_phone_number),
+                'client_email': order.client_email,
+                'delivery_address': order.delivery_address,
+                'price': order.price,
+                'discount': order.discount,
+                'total_payable': order.total_payable,
+            }
+            return JsonResponse(data)
+        except Order.DoesNotExist:
+            return JsonResponse({'error': 'Order not found'}, status=404)
+
+    return JsonResponse({'error': 'Invalid request method.'}, status=400)

@@ -49,4 +49,10 @@ urlpatterns = [
     path('add_employee/', add_employee, name='add_employee'),
     path('add_order/', add_order, name='add_order'),
     path('add_task/', add_task, name='add_task'),
+    path('get-employee/<int:employee_id>/', get_employee, name='get_employee'),
+    path('update-employee/<int:employee_id>/', update_employee, name='update_employee'),
+    path('get-order/<int:order_id>/', get_order, name='get_order'),
+    path('update-order/<int:order_id>/', update_order, name='update_order'),
+    path('get-task/<int:task_id>/', get_task, name='get_task'),
+    path('update-task/<int:task_id>/', update_task, name='update_task'),
 ]
