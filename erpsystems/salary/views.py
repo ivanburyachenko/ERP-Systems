@@ -5,7 +5,7 @@ from base.models import Salary
 
 # Create your views here.
 def salary(request):
-    salaries = Salary.objects.all()  # Получаем все записи из модели Salary
+    salaries = Salary.objects.all() 
     return render(request, 'salary/salary.html', {'salaries': salaries})
 @csrf_exempt
 def update_salary(request, id):

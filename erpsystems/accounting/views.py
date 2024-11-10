@@ -54,7 +54,6 @@ def filter_employees(request):
 @csrf_exempt
 def add_employee(request):
     if request.method == 'POST':
-        # Extract data from the request
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         patronymic = request.POST.get('patronymic')
@@ -68,9 +67,8 @@ def add_employee(request):
         status = request.POST.get('status')
         schedule = request.POST.get('schedule')
 
-        # Create and save the new employee
         employee = Employee.objects.create(
-            user=request.user,  # Adjust as needed
+            user=request.user,
             first_name=first_name,
             last_name=last_name,
             patronymic=patronymic,
@@ -128,8 +126,6 @@ def update_employee(request, employee_id):
         employee.status = request.POST.get('status')
         employee.schedule = request.POST.get('schedule')
         employee.save()
-
-        # Возвращаем обновленные данные сотрудника, конвертируя phone_number в строку
         return JsonResponse({
             'first_name': employee.first_name,
             'last_name': employee.last_name,

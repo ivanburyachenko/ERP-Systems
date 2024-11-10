@@ -72,9 +72,6 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(response) {
                 $('#employeeModal').modal('hide');
-            },
-            error: function(xhr, status, error) {
-                alert('Сталася помилка: ' + error);
             }
         });
     });

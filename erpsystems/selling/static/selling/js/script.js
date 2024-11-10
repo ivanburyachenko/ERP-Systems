@@ -97,12 +97,8 @@ $(document).ready(function() {
             url: $('#addOrderUrl').val(),
             data: $(this).serialize(),
             success: function(response) {
-                alert('Замовлення успішно додано!');
                 $('#orderModal').modal('hide');
                 $('#orderForm')[0].reset();
-            },
-            error: function(xhr, status, error) {
-                alert('Сталася помилка: ' + error);
             }
         });
     });

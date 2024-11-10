@@ -77,14 +77,14 @@ def add_order(request):
 
     return render(request, 'your_template.html') 
 
-@csrf_exempt  # This allows us to bypass CSRF verification for AJAX requests
+@csrf_exempt
 def get_order(request, order_id):
     if request.method == 'GET':
         try:
             order = Order.objects.get(number=order_id)
             data = {
                 'client_name': order.client_name,
-                'client_phone_number': str(order.client_phone_number),  # convert PhoneNumber to str
+                'client_phone_number': str(order.client_phone_number),
                 'client_email': order.client_email,
                 'delivery_address': order.delivery_address,
                 'price': order.price,

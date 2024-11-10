@@ -51,7 +51,7 @@ def filter_tasks(request):
 def add_task(request):
     if request.method == 'POST':
         task = Task(
-            user=request.user,  # Assuming the user is authenticated
+            user=request.user,
             status=request.POST.get('status'),
             priority=request.POST.get('priority'),
             description=request.POST.get('description'),
@@ -62,14 +62,12 @@ def add_task(request):
         )
         task.save()
 
-        # Handle ManyToManyField for employees
         employee_ids = request.POST.getlist('employee')
         for employee_id in employee_ids:
             task.employee.add(employee_id)
         
-        # Generate a slug for the task
         task.slug = f"{task.description}-{task.number}"
-        task.save()  # Save the task again to update the slug
+        task.save()
         
         return JsonResponse({'success': True})
 

@@ -75,19 +75,15 @@ $(document).on('click', '#clear-filters', function () {
 });
 $(document).ready(function() {
     $('#taskForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
 
         $.ajax({
             type: 'POST',
-            url: $('#addTaskUrl').val(), // Ensure this URL is valid
+            url: $('#addTaskUrl').val(),
             data: $(this).serialize(),
             success: function(response) {
-                alert('Завдання успішно додано!');
-                $('#taskModal').modal('hide'); // Hide the modal after successful submission
-                $('#taskForm')[0].reset(); // Reset the form
-            },
-            error: function(xhr, status, error) {
-                alert('Сталася помилка: ' + error);
+                $('#taskModal').modal('hide');
+                $('#taskForm')[0].reset();
             }
         });
     });
