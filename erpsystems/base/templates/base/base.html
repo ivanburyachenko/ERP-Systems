@@ -22,7 +22,16 @@
         <a href="{% url 'main' %}"><img class="cursor-pointer" src="{% static 'base/img/header-img.svg' %}" alt=""></a>
         <div class="d-flex align-items-center justify-content-around w-50">
             <h1 class="header-item cursor-pointer"><a href="{% url 'product' %}">Функціонал</a></h1>
-            <h1 class="header-item cursor-pointer"><a href="">Послуги</a></h1>
+            <h1 class="header-item cursor-pointer dropdown">
+                <a href="#" class="dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Послуги
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <li><a class="dropdown-item" href="{% url 'implementation' %}">Впровадження</a></li>
+                    <li><a class="dropdown-item" href="{% url 'consultation' %}">Консультації</a></li>
+                    <li><a class="dropdown-item" href="{% url 'support' %}">Підтримка</a></li>
+                </ul>
+            </h1>
             <h1 class="header-item cursor-pointer"><a href="{% url 'contactus' %}">Зв'яжіться з нами</a></h1>
             <button type="button" class="btn header-btn btn-primary">Спробувати</button>
         </div>
