@@ -45,3 +45,32 @@ $(document).on('click', '.delete-btn', function() {
         }
     });
 });
+$('#addSalaryBtn').on('click', function () {
+    $('#addSalaryModal').modal('show');
+});
+
+$('#saveSalaryBtn').on('click', function () {
+    const employee_id = $('#employee').val();
+    const amount = $('#amount').val();
+    const date = $('#date').val();
+    const status = $('#status').val();
+
+    $.ajax({
+        url: '/add_salary/',
+        type: 'POST',
+        data: {
+            'employee_id': employee_id,
+            'amount': amount,
+            'date': date,
+            'status': status,
+            'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function (response) {
+            if (response.status === 'success') {
+                location.reload();
+            } else {
+                alert('Не вдалося додати заробітну плату.');
+            }
+        }
+    });
+});
